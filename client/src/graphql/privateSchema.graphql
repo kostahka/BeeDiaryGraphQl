@@ -1,0 +1,47 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Apiary {
+    _id: String
+    hives: [Hive]
+    name: String
+}
+
+type Hive {
+    _id: String
+    number: Int
+    performance: Int
+    queen: String
+    type: String
+}
+
+type Mutation {
+    addApiary(name: String!, nickname: String!): Apiary
+    addHives(count: Int!, id: String!): [Hive]
+    deleteApiary(id: String!): Apiary
+    deleteHive(id: String!): Hive
+    setApiary(apiaryInput: ApiaryInput!): Apiary
+    setHive(hiveInput: HiveInput!): Hive
+}
+
+type Query {
+    getApiaries(nickname: String!): [Apiary]
+    getApiary(id: String!): Apiary
+    getHive(id: String!): Hive
+}
+
+input ApiaryInput {
+    _id: String!
+    name: String
+}
+
+input HiveInput {
+    _id: String!
+    performance: Int
+    queen: String
+    type: String
+}

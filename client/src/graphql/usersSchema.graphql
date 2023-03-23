@@ -1,0 +1,34 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Mutation {
+    login(authInput: AuthInput!): UserData
+    logout(refreshToken: String!): String
+    refresh(refreshToken: String!): UserData
+    registration(authInput: AuthInput!): UserData
+}
+
+type Query {
+    getUser(id: String): User
+}
+
+type User {
+    _id: String
+    isAdmin: Boolean
+    nickname: String
+}
+
+type UserData {
+    accessToken: String
+    refreshToken: String
+    user: User
+}
+
+input AuthInput {
+    nickname: String!
+    password: String!
+}
